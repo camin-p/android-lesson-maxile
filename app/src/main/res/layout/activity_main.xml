@@ -124,7 +124,15 @@
                     android:background="#00cc00"/>
             </LinearLayout>
 
-            
+            <android.support.v7.widget.AppCompatButton
+                app:layout_constraintTop_toBottomOf="@id/linear_v"
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:layout_margin="6dp"
+                android:padding="6dp"
+                android:text="button"
+                android:background="@drawable/btn_bg"
+                />
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
