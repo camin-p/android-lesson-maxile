@@ -5,11 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+    <android.support.v7.widget.AppCompatButton
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="@string/change_language_button"
+        android:id="@+id/openform"
+        android:layout_margin="6dp"/>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        app:layout_constrainedHeight="true"
         android:scrollbars="vertical"
         android:id="@+id/my_recycle_view"
+        app:layout_constraintTop_toBottomOf="@id/openform"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         >
     </android.support.v7.widget.RecyclerView>
     <ProgressBar

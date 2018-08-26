@@ -1,6 +1,7 @@
 package com.example.maxile.myapplication;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -15,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import java.security.PublicKey;
+import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,8 +54,16 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new RecyclerAdapter(datas);
+
+        adapter = new RecyclerAdapter(datas, this);
         recyclerView.setAdapter(this.adapter);
+
+        findViewById(R.id.openform).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LanguageHelper.SwitchLanguage(MainActivity.this);
+            }
+        });
 
         loadRequest();
     }
