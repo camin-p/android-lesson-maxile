@@ -7,7 +7,8 @@
     android:layout_margin="4dp"
     android:elevation="10dp"
     android:background="@drawable/adapter_bg">
-    <View
+    <ImageView
+        android:id="@+id/imageview"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="#A5A5A5"

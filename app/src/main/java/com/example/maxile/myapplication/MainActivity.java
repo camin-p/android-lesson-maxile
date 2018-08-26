@@ -23,13 +23,14 @@ import retrofit2.http.GET;
 public class MainActivity extends AppCompatActivity {
 
     public class RecycleViewModel{
-        public RecycleViewModel(String title, String detail){
+        public RecycleViewModel(String title, String detail, String imgurl){
             this.title = title;
             this.detail = detail;
+            this.imgurl = imgurl;
         }
         public String title;
         public String detail;
-
+        public String imgurl;
     }
 
     public List<RecycleViewModel> datas = new ArrayList<RecycleViewModel>();
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         for (int i = 0;i<20;i++){
-            datas.add(new RecycleViewModel("What is Lorem Ipsum?", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."));
+            datas.add(new RecycleViewModel("What is Lorem Ipsum?", "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",""));
         }
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.my_recycle_view);
         recyclerView.setHasFixedSize(true);
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 datas.clear();
                 for (NewsItem n :
                         response.body().new_list) {
-                    datas.add(new RecycleViewModel(n.title,n.news));
+                    datas.add(new RecycleViewModel(n.title,n.news,n.cover_picture));
                 }
                 adapter.notifyDataSetChanged();
             }
