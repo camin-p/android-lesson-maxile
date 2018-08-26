@@ -58,7 +58,6 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         MWAService service = retrofit.create(MWAService.class);
-
         service.listNews().enqueue(new Callback<NewsModel>() {
             @Override
             public void onResponse(Call<NewsModel> call, Response<NewsModel> response) {
@@ -68,9 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     datas.add(new RecycleViewModel(n.title,n.news));
                 }
                 adapter.notifyDataSetChanged();
-
             }
-
             @Override
             public void onFailure(Call<NewsModel> call, Throwable t) {
                 int i =0;
